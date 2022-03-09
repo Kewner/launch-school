@@ -227,13 +227,14 @@ class TwentyOneGame {
   displayWelcomeMessage() {
     console.clear();
     console.log("Welcome to Twenty-One!\n\n" +
-                "You have $5, and each game you will play for $1.\n" +
-                "Once you've earned up to $10, you'll have won the game;\n" +
-                "when you've reached $0, you'll have lost the game.\n");
+                "You have $5, of which you will bet $1 on each game.\n" +
+                "After winning your way to $10, you'll have won the game;\n" +
+                "keep losing until your broke, and you'll have lost the game.\n");
     readline.question('Good luck! (press Enter to start)');
   }
 
   displayGoodbyeMessage() {
+    console.log('');
     console.log('Thank you for playing Twenty-One. Goodbye!');
   }
 
@@ -318,6 +319,7 @@ class TwentyOneGame {
   }
 
   playAgain() {
+    console.log('');
     let answer = readline.question('Would you like to play again? ');
     answer = answer.toLowerCase();
 
