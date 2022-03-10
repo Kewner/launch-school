@@ -1,0 +1,12 @@
+## Exercises that exposed weak points
+- 03-fake-cat.js
+  - `instanceof` vs. `constructor` property
+- 04-complete-the-program-cats.js & 08-shouter.js
+  - modifying `Pet`, why or why not?
+  - implicitly calling the `constructor` method including `super`
+- 05-animals.js
+  - calling methods on an object's parent using `super`
+- 09-moving.js
+  - mixins!! how to use them, and when to use them
+- 10-pet-shelter.js
+  - compare your solution to LS solution
