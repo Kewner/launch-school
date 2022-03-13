@@ -9,4 +9,4 @@
 - 09-moving.js
   - mixins!! how to use them, and when to use them
 - 10-pet-shelter.js
-  - compare your solution to LS solution
+  - how to organize the objects/which methods go where?
