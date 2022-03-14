@@ -48,7 +48,7 @@ class Dog extends Animal {
 }
 
 let dog = new Dog('Rex', 5, 'lethargic', 'Harold');
-console.log(dog.introduce()); // Hello, my name is Rex and I am 5 years old and lethargic.
+console.log(dog.introduce()); // Hello, my name is Harold and I am 5 years old and lethargic.
 console.log(dog.greetMaster()); // Hello Harold! Woof, woof!
 console.log(dog);
 

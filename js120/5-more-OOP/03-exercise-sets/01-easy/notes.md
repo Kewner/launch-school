@@ -6,7 +6,10 @@
   - implicitly calling the `constructor` method including `super`
 - 05-animals.js
   - calling methods on an object's parent using `super`
+  - when calling `super`, why is the execution context the new object?
 - 09-moving.js
   - mixins!! how to use them, and when to use them
 - 10-pet-shelter.js
   - how to organize the objects/which methods go where?
+- 11-banner-class.js
+  - further exploration: multiline message logic

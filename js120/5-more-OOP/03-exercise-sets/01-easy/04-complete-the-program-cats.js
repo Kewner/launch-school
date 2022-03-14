@@ -28,6 +28,7 @@ console.log(butterscotch.info());
 // My cat Pudding is 7 years old and has black and white fur.
 // My cat Butterscotch is 10 years old and has tan and white fur.
 
+// Further exploration
 // An alternative approach to this problem would be to modify the Pet
 // class to accept a colors parameter:
 
@@ -40,10 +41,8 @@ class Pet1 {
 }
 
 class Cat1 extends Pet1 {
-  // constructor(name, age, colors) {
-  //   super(name, age, colors);
-  // }
-
+  // constructor method omitted
+  
   info() {
     return `My cat ${this.name} is ${this.age} years old and has ${this.colors} fur.`;
   }
@@ -59,7 +58,14 @@ console.log(butterscotch1.info());
 hood, JS would create one and call it, including the `super` keyword.
 
 Would it be a good idea to modify `Pet` in this way?
+  If all classes that are a subtype of Pet require a colors argument, then yes;
+  otherwise no, because the Pet constructor would then define the colors
+  property as undefined, which can cause problems in Pet's methods.
 
 How might you deal with some of the problems that might arise from modifying `Pet`?
+  If there a subtype classes that don't require a colors argument, it would be
+  wise to set a default value as the colors property:
+  `if (color) this.color = color` or
+  `if (!color) this.color = 'unknown color'
 
 */
