@@ -1,0 +1,14 @@
+{
+  "invalidSquareChoice" : "Sorry, that's not a valid choice.",
+  "chooseSquare" : "Choose a square: %s",
+  "gameWinner" : "%s has won this game!",
+  "displayScore" : "Player: %s Computer: %s",
+  "matchWinner" : "%s has won this game and the match!",
+  "playAgain" : "Would you like to play another %s? y/n",
+  "invalidYesNoChoice" : "Please choose 'y' or 'n':",
+  "firstToPlay" : "Who's first, player or computer?",
+  "invalidPlayerChoice" : "Please enter 'player' or 'computer':",
+  "tie" : "It's a tie!",
+  "greatMatch" : "Great match!",
+  "thanksForPlaying" : "Thank you for playing Tic Tac Toe!"
+}

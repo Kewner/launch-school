@@ -1,0 +1,16 @@
+{
+  "welcome" : "Welcome to Rock, Paper, Scissors, Spock, Lizard.",
+  "rules" : "The first to win 5 rounds wins the game. Good luck!",
+  "chooseOne" : "Round %s! Make a choice: %s",
+  "noValidChoice" : "That's not a valid choice.",
+  "youChose" : "You chose %s, computer chose %s.",
+  "youWonRound" : "You won this round.",
+  "youWonGame" : "Congratulations, you won the game!",
+  "youLostround" : "You lost this round.",
+  "youLostGame" : "You lost the game...",
+  "tie" : "It's a tie.",
+  "scoreMsg" : "You: %s Computer: %s",
+  "playAgain" : "Do you want to play again (y/n)?",
+  "pleaseYesOrNo" : "Please enter 'y' or 'n'.",
+  "goodbye" : "Goodbye!"
+}

@@ -1,19 +1,15 @@
 git-cheatsheets/
 JS100/
-JS101/
+JS101/_notes/
 JS109/
+JS120/_notes/
+JS130/_notes/
 
-JS120/1-intro-to-OOP/
-JS120/2-functions-objects-prototypes/
-JS120/3-object-creation-patterns/
-JS120/4-subclassing-and-code-reuse-patterns/
-JS120/assessment-prep/
-JS120/round-2/
-
+logseq-notes/
+node_modules/
+test-code/
 
 .eslintrc.yml
 install-rlsync.txt
-
-# Node
 node_modules/
 package-lock.json

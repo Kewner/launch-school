@@ -1,0 +1,36 @@
+{
+  "1": {
+    "chooseLanguage": "1) English 2) Deutsch 3) Français?",
+    "notValidNum": "Hmm... that doesn't look like a valid number.",
+    "mustChoose": "Please choose 1, 2, 3 or 4!",
+    "welcome": "Welcome to calculator!",
+    "askFirstNum": "What's the first number?",
+    "askSecondNum": "What's the second number?",
+    "whatOperation": "What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide",
+    "anotherCalculation": "Would you like to do another calculation? y/n",
+    "yesOrNo": "Please enter 'y' or 'n'!",
+    "goodbye": "Goodbye!"
+  },
+  "2": {
+    "notValidNum": "Hmm... das sieht nicht nach einer gültigen Nummer aus.",
+    "mustChoose": "Bitte wählen Sie 1, 2, 3 oder 4!",
+    "welcome": "Willkommen im Taschenrechner!",
+    "askFirstNum": "Was ist die erste Nummer?",
+    "askSecondNum": "Was ist die zweite Nummer?",
+    "whatOperation": "Welche Operation möchten Sie durchführen?\n1) Hinzufügen 2) Subtrahieren 3) Multiplizieren 4) Teilen",
+    "anotherCalculation": "Möchten Sie eine weitere Berechnung durchführen? y/n",
+    "yesOrNo": "Bitte geben Sie 'y' oder 'n'!",
+    "goodbye": "Auf Wiedersehen!"
+  },
+  "3": {
+    "notValidNum": "Hmm... ça ne ressemble pas à un nombre valide.",
+    "mustChoose": "Veuillez choisir 1, 2, 3 ou 4!",
+    "welcome": "Bienvenue dans la calculatrice!",
+    "askFirstNum": "Quel est le premier numéro?",
+    "askSecondNum": "Quel est le deuxième numéro?",
+    "whatOperation": "Quelle opération souhaitez-vous effectuer?\n1) Ajouter 2) Soustraire 3) Multiplier 4) Diviser",
+    "anotherCalculation": "Souhaitez-vous faire un autre calcul? y/n",
+    "yesOrNo": "Veuillez entrer 'y' ou 'n'!",
+    "goodbye": "Au revoir!"
+  }
+}

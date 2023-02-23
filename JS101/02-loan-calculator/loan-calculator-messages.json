@@ -1,0 +1,14 @@
+{
+  "welcome" : "Welcome to Loan Calculator!",
+  "getAmount" : "What amount of money would you like to loan?",
+  "invalidgetAmount" : "Please enter a positive amount (max. 10.000).",
+  "getApr" : "What's the Annual Percentage Rate (in percents)?",
+  "invalidgetApr" : "Please enter a positive number (max. 100).",
+  "getTerm" : "What's the loan term (in months)?",
+  "invalidgetTerm" : "Please enter a positive, whole number of months (at least 1).",
+  "noLoan" : "No loan, no payments!",
+  "monthlyPayment" : "You will be paying $%s each month for %s month(s).",
+  "anotherCalculation" : "Would you like to do another calculation? y/n",
+  "answerCheck" : "Please enter 'y' or 'n'.",
+  "bye" : "Goodbye!"
+}
