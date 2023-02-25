@@ -13,4 +13,4 @@ class Cat {
 }
 
 let kitty = new Cat('Sophie');
-kitty.greet();
+kitty.greet(); // Hello! My name is Sophie!
