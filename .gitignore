@@ -4,12 +4,9 @@ JS101/_notes/
 JS109/
 JS120/_notes/
 JS130/_notes/
-
-logseq-notes/
 node_modules/
-test-code/
 
 .eslintrc.yml
-install-rlsync.txt
 node_modules/
 package-lock.json
+package.json
