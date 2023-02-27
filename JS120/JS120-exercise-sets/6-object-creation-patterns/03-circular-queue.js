@@ -41,8 +41,9 @@
 // . . .  remove non-existent item from queue (nil)
 
 // SOLUTION
+// =====================================================================
 
-// Methods:
+// Methods
 // enqueue: - add item to the position that immediately follows the most
 //            recently added object.
 //          - if queueu is full, remove the oldest object in the queue.
@@ -52,8 +53,8 @@
 class CircularQueue {
   constructor(length) {
     this.queue = new Array(length).fill(null);
-    this.newestIdx = 0; // keep track of newest item
-    this.oldestIndexes = [];
+    this.newestIdx = 0;       // keep track of newest item
+    this.oldestIndexes = [];  // keep track of oldest item
   }
 
   enqueue(num) {
@@ -69,41 +70,51 @@ class CircularQueue {
     //   - call dequeue
     //   - call enqueue again
 
-    let itemPlaced = false;
     let startIdx = this.newestIdx;
+    let emptySpotIdx = this.findEmptySpot(startIdx);
 
-    do {
-      if (this.queue[startIdx] === null) {
-        this.queue[startIdx] = num;
-        this.newestIdx = startIdx;
-        itemPlaced = true;
-        this.addToOldest(startIdx);
-        break;
-      }
-
-      if (startIdx === this.queue.length - 1) {
-        startIdx = 0;
-      } else {
-        startIdx += 1;
-      }
-    } while (startIdx !== this.newestIdx);
-
-    if (!itemPlaced) {
+    if (emptySpotIdx !== undefined) {
+      this.addToQueue(num, emptySpotIdx);
+      this.addToOldest(emptySpotIdx);
+    } else {
       this.dequeue();
       this.enqueue(num);
     }
   }
 
   addToOldest(idx) {
-    // add new item index to this.oldestIndexes
     this.oldestIndexes.push(idx);
+  }
+
+  findEmptySpot(idx) {
+    let emptySpotIdx;
+
+    do {
+      if (this.queue[idx] === null) {
+        emptySpotIdx = idx;
+        break;
+      }
+
+      if (idx === this.queue.length - 1) {
+        idx = 0;
+      } else {
+        idx += 1;
+      }
+    } while (idx !== this.newestIdx);
+
+    return emptySpotIdx;
+  }
+
+  addToQueue(num, idx) {
+    this.queue[idx] = num;
+    this.newestIdx = idx;
   }
 
   dequeue() {
     // - find oldest: first item of this.oldestIndexes
     // - remove this index number from this.oldestIndexes
-    // - remove the item at this index from this.queue, and
-    //   return this item
+    // - remove the item at this index from this.queue, return it
+
     let oldest = this.oldestIndexes[0];
     this.oldestIndexes.shift();
     return this.queue.splice(oldest, 1, null)[0];
