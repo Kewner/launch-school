@@ -44,20 +44,6 @@ class User {
   }
 
   incProgress(rank) {
-    // - if rank is out of range, throw error
-    // - initialize `difference` to rank difference
-    // - initialize `progress` to getProgress(difference)
-    // - add `progress` to this.progress
-
-    // - if this.progress is 100 or more AND this.rank is less than 8:
-    //     - initialize `rankIncrease` to Math.floor(this.progress / 100)
-    //     - increment this.rank by `this.increaseRank(rankIncrease)`
-    //     - if this.rank equals 0, increment by 1 again
-    //     - subtract `rankIncrease * 100` from this.progress
-    // - if this.rank equals or is greater than 8:
-    //     - set this.rank to 8
-    //     - set this.progress to 0
-
     if (rank < -8 || rank > 8 || rank === 0) {
       throw new Error('Not a valid rank!');
     }
@@ -79,12 +65,6 @@ class User {
   }
 
   getDifference(currentRank, activityRank) {
-    // - initialize `difference` with value of 0
-    // - using a for loop, iterate from smallest to largest number:
-    //     - if idx is not 0, increment difference by 1
-    // - if currentRank is greater than activityRank, return difference * -1
-    // - else, return difference
-
     let difference = 0;
     let smallest = Math.min(currentRank, activityRank);
     let largest = Math.max(currentRank, activityRank);
@@ -98,11 +78,6 @@ class User {
   }
 
   getProgress(difference) {
-    // - if `difference` is 0, return 3
-    // - else if `difference` is -1, return 1
-    // - else if `difference` is greater than 0, return 10 * difference * difference
-    // - else, return 0
-
     if (difference === 0) return 3;
     if (difference === -1) return 1;
     if (difference > 0) return 10 * difference * difference;
@@ -133,11 +108,3 @@ console.log('user.progress: ' + user.progress); // 30
 user.incProgress(4);
 console.log('user.rank: ' + user.rank); // 1
 console.log('user.progress: ' + user.progress); // 90
-
-// user.incProgress(-7);
-// console.log('user.progress: ' + user.progress); // 10
-// console.log('user.rank: ' + user.rank); // -8
-
-// user.incProgress(-5); // will add 90 progress
-// console.log('user.progress: ' + user.progress); // progress is now 0
-// console.log('user.rank: ' + user.rank); // rank was upgraded to -7
