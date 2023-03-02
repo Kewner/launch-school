@@ -1,4 +1,6 @@
 // Building a forEach method
+// - forEach accepts array, callback, and thisArg as arguments.
+// - the callback accepts element, index, and array as arguments.
 
 function forEach(array, callback, thisArg) {
   for (let idx = 0; idx < array.length; idx += 1) {
