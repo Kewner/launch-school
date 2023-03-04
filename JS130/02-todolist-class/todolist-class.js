@@ -113,13 +113,13 @@ class TodoList {
   }
 
   filter(callback) {
-    const selectedTodos = [];
+    const doneTodoList = new TodoList(this.title);
 
     this.forEach(todo => {
-      if (callback(todo)) selectedTodos.push(todo);
+      if (callback(todo)) doneTodoList.add(todo);
     });
 
-    return selectedTodos;
+    return doneTodoList;
   }
 }
 
@@ -140,5 +140,23 @@ list.add(todo6);
 todo1.markDone();
 todo5.markDone();
 
-let doneTodos = list.filter(todo => todo.isDone());
-console.log(doneTodos);
+// Now that filter returns a TodoList object instead of an array,
+// we can chain the methods on TodoList.prototype:
+
+console.log(list.filter(todo => todo.isDone()).first());
+// Todo { title: 'Buy milk', done: true }
+
+console.log(list.filter(todo => todo.isDone()).last());
+// Todo { title: 'Feed the cats', done: true }
+
+console.log(list.filter(todo => todo.isDone()).size());
+// 2
+
+console.log(list.filter(todo => todo.isDone()));
+// TodoList {
+//   title: "Today's Todos",
+//   todos: [
+//     Todo { title: 'Buy milk', done: true },
+//     Todo { title: 'Feed the cats', done: true }
+//   ]
+// }
