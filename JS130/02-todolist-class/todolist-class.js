@@ -131,6 +131,11 @@ class TodoList {
     return this.filter(todo => !todo.isDone());
   }
 
+  markDone(title) {
+    const todo = this.findByTitle(title);
+    if (todo !== undefined) todo.markDone();
+  }
+
   markAllDone() {
     this.forEach(todo => todo.markDone());
   }
