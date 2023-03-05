@@ -123,7 +123,7 @@ class TodoList {
   }
 
   findByTitle(title) {
-    return this.filter(todo => todo.getTitle() === title).todos[0];
+    return this.filter(todo => todo.getTitle() === title).first();
   }
 
   allDone() {
@@ -143,7 +143,7 @@ class TodoList {
   }
 
   toArray() {
-    return Object.assign([], this.todos);
+    return this.todos.slice();
   }
 }
 
