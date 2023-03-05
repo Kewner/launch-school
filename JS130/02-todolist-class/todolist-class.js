@@ -99,15 +99,12 @@ class TodoList {
     return listStr;
   }
 
-  // _ suggests a 'private' method: it shouldn't be used from outside the class
   _validateIndex(index) {
     if (!(index in this.todos)) {
       throw new ReferenceError(`invalid index: ${index}`);
     }
   }
 
-  // like the add method, giving TodoList.prototype its own forEach to hide
-  // implementation details from users of the class (encapsulation)
   forEach(callback) {
     this.todos.forEach(callback);
   }
@@ -161,15 +158,3 @@ list.add(todo3);
 list.add(todo4);
 list.add(todo5);
 list.add(todo6);
-todo1.markDone();
-todo5.markDone();
-
-console.log(list.toArray());
-// [
-//   Todo { title: 'Buy milk', done: true },
-//   Todo { title: 'Clean room', done: false },
-//   Todo { title: 'Go to the gym', done: false },
-//   Todo { title: 'Go shopping', done: false },
-//   Todo { title: 'Feed the cats', done: true },
-//   Todo { title: 'Study for Launch School', done: false }
-// ]
