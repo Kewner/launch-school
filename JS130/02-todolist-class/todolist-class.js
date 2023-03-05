@@ -123,7 +123,7 @@ class TodoList {
   }
 
   findByTitle(title) {
-    return this.filter(todo => todo.title === title).todos[0];
+    return this.filter(todo => todo.getTitle() === title).todos[0];
   }
 
   allDone() {
@@ -140,6 +140,10 @@ class TodoList {
 
   markAllUndone() {
     this.forEach(todo => todo.markUndone());
+  }
+
+  toArray() {
+    return Object.assign([], this.todos);
   }
 }
 
@@ -160,20 +164,12 @@ list.add(todo6);
 todo1.markDone();
 todo5.markDone();
 
-list.markAllUndone();
-
-console.log(list.allNotDone());
-// TodoList {
-//   title: "Today's Todos",
-//   todos: [
-//     Todo { title: 'Buy milk', done: false },
-//     Todo { title: 'Clean room', done: false },
-//     Todo { title: 'Go to the gym', done: false },
-//     Todo { title: 'Go shopping', done: false },
-//     Todo { title: 'Feed the cats', done: false },
-//     Todo { title: 'Study for Launch School', done: false }
-//   ]
-// }
-
-console.log(list.allDone());
-// TodoList { title: "Today's Todos", todos: [] }
+console.log(list.toArray());
+// [
+//   Todo { title: 'Buy milk', done: true },
+//   Todo { title: 'Clean room', done: false },
+//   Todo { title: 'Go to the gym', done: false },
+//   Todo { title: 'Go shopping', done: false },
+//   Todo { title: 'Feed the cats', done: true },
+//   Todo { title: 'Study for Launch School', done: false }
+// ]
