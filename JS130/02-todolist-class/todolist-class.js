@@ -125,6 +125,10 @@ class TodoList {
   findByTitle(title) {
     return this.filter(todo => todo.title === title).todos[0];
   }
+
+  allDone() {
+    return this.filter(todo => todo.isDone());
+  }
 }
 
 let todo1 = new Todo("Buy milk");
@@ -133,7 +137,6 @@ let todo3 = new Todo("Go to the gym");
 let todo4 = new Todo("Go shopping");
 let todo5 = new Todo("Feed the cats");
 let todo6 = new Todo("Study for Launch School");
-let todo7 = new Todo("Buy milk");
 let list = new TodoList("Today's Todos");
 
 list.add(todo1);
@@ -142,9 +145,14 @@ list.add(todo3);
 list.add(todo4);
 list.add(todo5);
 list.add(todo6);
-list.add(todo7);
 todo1.markDone();
 todo5.markDone();
 
-console.log(list.findByTitle('Buy milk'));
-// Todo { title: 'Buy milk', done: true }
+console.log(list.allDone());
+// TodoList {
+//   title: "Today's Todos",
+//   todos: [
+//     Todo { title: 'Buy milk', done: true },
+//     Todo { title: 'Feed the cats', done: true }
+//   ]
+// }
