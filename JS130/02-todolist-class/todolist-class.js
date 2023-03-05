@@ -129,6 +129,10 @@ class TodoList {
   allDone() {
     return this.filter(todo => todo.isDone());
   }
+
+  allNotDone() {
+    return this.filter(todo => !todo.isDone());
+  }
 }
 
 let todo1 = new Todo("Buy milk");
@@ -148,11 +152,13 @@ list.add(todo6);
 todo1.markDone();
 todo5.markDone();
 
-console.log(list.allDone());
+console.log(list.allNotDone());
 // TodoList {
 //   title: "Today's Todos",
 //   todos: [
-//     Todo { title: 'Buy milk', done: true },
-//     Todo { title: 'Feed the cats', done: true }
+//     Todo { title: 'Clean room', done: false },
+//     Todo { title: 'Go to the gym', done: false },
+//     Todo { title: 'Go shopping', done: false },
+//     Todo { title: 'Study for Launch School', done: false }
 //   ]
 // }
