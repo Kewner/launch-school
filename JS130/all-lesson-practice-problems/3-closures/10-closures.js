@@ -10,7 +10,7 @@
 // That is, your version of bind should merely call the function with the
 // desired context; it doesn't need to pass any arguments to the function.
 
-"use strict";
+'use strict';
 
 function bind(context, func) {
   return () => func.call(context);

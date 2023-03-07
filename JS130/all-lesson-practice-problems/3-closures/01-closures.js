@@ -1,6 +1,8 @@
 // What do the 4 console.log statements at the end of this program print?
 // Try to answer without running the code:
 
+'use strict';
+
 let counter = 0;
 
 function makeCounter() {

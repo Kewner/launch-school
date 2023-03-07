@@ -3,6 +3,8 @@
 // at the end of this program print? Try to answer without running
 // the code:
 
+'use strict';
+
 function makeCounter() {
   return function() {
     let counter = 0;

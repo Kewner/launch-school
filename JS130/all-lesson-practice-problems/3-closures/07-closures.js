@@ -1,6 +1,8 @@
 // Without running the following code, determine what value it logs on
 // the last line. Explain how the program arrived at that final result.
 
+'use strict';
+
 function foo(start) {
   let prod = start;
   return function (factor) {

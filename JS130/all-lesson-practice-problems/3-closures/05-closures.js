@@ -3,6 +3,8 @@
 // when invoked, logs every positive integer multiple of that number
 // less than 100.
 
+'use strict';
+
 function makeMultipleLister(num) {
   return function() {
     for (let multiple = num; multiple < 100; multiple += num) {

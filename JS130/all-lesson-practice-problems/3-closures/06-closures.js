@@ -3,6 +3,8 @@
 // a number, it should add or subtract that number from the running
 // total and log the new total to the console.
 
+'use strict';
+
 let total = 0;
 
 function add(num) {

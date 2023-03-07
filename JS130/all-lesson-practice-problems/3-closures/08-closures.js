@@ -1,6 +1,8 @@
 // Write a function named later that takes two arguments: a function and
 // an argument for that function.
 
+'use strict';
+
 function later(func, arg) {
   return () => func(arg);
 }
