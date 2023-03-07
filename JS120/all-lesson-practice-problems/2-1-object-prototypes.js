@@ -57,7 +57,6 @@ console.log(fooC.qix); // undefined
 console.log(fooA.hasOwnProperty("qix")); // false
 console.log(fooC.hasOwnProperty("qix")); // false
 
-
 // Consider the two loops below.
 // If foo is an arbitrary object, will these loops always log the same results to
 // the console? Explain why they do or do not. If they don't always log the same
