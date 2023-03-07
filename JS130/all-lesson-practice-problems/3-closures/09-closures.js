@@ -4,6 +4,8 @@
 // input function with the argument provided to later2 and the argument
 // provided to the returned function.
 
+"use strict";
+
 function later2(func, arg1) {
   return arg2 => func(arg1, arg2);
 }
