@@ -14,26 +14,31 @@
 // and understand.
 
 function makeList() {
-  const todos = [];
-
   return {
+    todos: [],
+
     list() {
-      if (todos.length === 0) {
+      if (this.todos.length === 0) {
         console.log('This list is empty.');
       } else {
-        todos.forEach(todo => console.log(todo));
+        this.todos.forEach(todo => console.log(todo));
       }
     },
 
     add(todo) {
-      todos.push(todo);
-      console.log(`${todo} added!`);
+      if (!this.todos.includes(todo)) {
+        this.todos.push(todo);
+        console.log(`${todo} added!`);
+      }
     },
 
     remove(todo) {
-      let index = todos.indexOf(todo);
-      todos.splice(index, 1);
-      console.log(`${todo} removed!`);
+      let index = this.todos.indexOf(todo);
+
+      if (index !== -1) {
+        this.todos.splice(index, 1);
+        console.log(`${todo} removed!`);
+      }
     },
   }
 }
