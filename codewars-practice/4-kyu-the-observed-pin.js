@@ -56,11 +56,12 @@
 // - arrays
 
 // algorithm
+// - Initialize `result` with empty array.
 // - Initialize `neighbours` with a value of an object with properties 0
-//   to 9, with arrays with all their neighbouring digits as their values.
+//   to 9, each property with an array including the property number and
+//   all its neighbouring digits as its value.
 // - Iterate through all digits of `observed`. For each `digit`:
-//     - iterate through digits in `neighbours.digit`
-//         - add
+//     - recursion?
 
 // ┌───┬───┬───┐
 // │ 1 │ 2 │ 3 │
@@ -74,17 +75,18 @@
 
 // code
 function getPINs(observed) {
+  const result = [];
   const neighbours = {
-    0: ['8'],
-    1: ['2', '4'],
-    2: ['1', '3', '5'],
-    3: ['2', '6'],
-    4: ['1', '5', '7'],
-    5: ['2', '4', '6', '8'],
-    6: ['3', '5', '9'],
-    7: ['4', '8'],
-    8: ['0', '5', '7', '9'],
-    9: ['6', '8'],
+    0: ['0', '8'],
+    1: ['1', '2', '4'],
+    2: ['1', '2', '3', '5'],
+    3: ['2', '3', '6'],
+    4: ['1', '4', '5', '7'],
+    5: ['2', '4', '5', '6', '8'],
+    6: ['3', '5', '6', '9'],
+    7: ['4', '7', '8'],
+    8: ['0', '5', '7', '8', '9'],
+    9: ['6', '8', '9'],
   };
 
   observed.split('').forEach(num => {
@@ -93,4 +95,14 @@ function getPINs(observed) {
 }
 
 // test cases
-getPINs('1357');
+getPINs('01');
+
+// possibilities:
+// 01
+// 02
+// 04
+// 81
+// 82
+// 84
+
+// getPINs('1357');
