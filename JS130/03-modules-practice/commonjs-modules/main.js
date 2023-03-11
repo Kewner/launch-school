@@ -1,3 +1,5 @@
+// note: imported variables cannot be reassigned (they are constants)
+
 // for importing modules installed by NPM, a path is usually not required
 const rlSync = require('readline-sync');
 rlSync.question('Would you like some coffee? y/n: ');
@@ -10,7 +12,7 @@ const getSum = require('./sum');
 getSum(5, 34, 78, 2, -5, 300); // 414
 
 // importing multiple items at once
-const { greet, setGreeting } = require('./greet');
+const { greet, setGreeting, number } = require('./greet');
 
 greet('Frank'); // Hello Frank
 setGreeting('Bye');
