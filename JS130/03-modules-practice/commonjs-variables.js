@@ -20,8 +20,9 @@ module.exports = {
   func,
 };
 
-// log module, require, __dirname, and __filename
-
+// log __dirname, __filename, module, and require
+console.log(__dirname);  // LS/JS130/03-modules-practice
+console.log(__filename); // JS130/03-modules-practice/commonjs-variables.js
 console.log(module);
 // Module {
 //   id: '.',
@@ -58,6 +59,3 @@ console.log(module);
 //     '/node_modules'
 //   ]
 // }
-
-console.log(__dirname);  // LS/JS130/03-modules-practice
-console.log(__filename); // JS130/03-modules-practice/commonjs-variables.js
