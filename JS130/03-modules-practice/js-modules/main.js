@@ -1,3 +1,5 @@
+// note: imported variables cannot be reassigned (they are constants)
+
 // to import, we need to use the names that we exported
 import { setGreeting, greet } from "./greet.js";
 
