@@ -6,8 +6,8 @@ rlSync.question('Would you like some coffee? y/n: ');
 const logIt = require('./logit');
 logIt('You rock!'); // You rock!
 
-const logAndCalculateSum = require('./sum');
-logAndCalculateSum(5, 34, 78, 2, -5, 300); // 414
+const getSum = require('./sum');
+getSum(5, 34, 78, 2, -5, 300); // 414
 
 // importing multiple items at once
 const { greet, setGreeting } = require('./greet');
