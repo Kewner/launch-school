@@ -1,5 +1,4 @@
 // exporting multiple items at once
-
 let greeting = 'Hello';
 
 function greet(name) {
