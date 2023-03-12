@@ -11,3 +11,5 @@ node_modules/
 package-lock.json
 package.json
 test-code.js
+
+!/JS130/03-modules-practice/js-modules/package.json
