@@ -40,7 +40,7 @@ const Account = (function() {
   let userEmail;
   let userPassword;
   let userFirstName;
-  let UserLastName;
+  let userLastName;
 
   return {
     init(...args) {
@@ -89,7 +89,7 @@ const Account = (function() {
 
     lastName(pass) {
       if (pass !== userPassword) return 'Invalid Password';
-      return UserLastName;
+      return userLastName;
     },
 
     email(pass) {
