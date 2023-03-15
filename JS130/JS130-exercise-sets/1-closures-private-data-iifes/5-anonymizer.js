@@ -44,7 +44,7 @@ const Account = (function() {
 
   return {
     init(...args) {
-      ([ userEmail, userPassword, userFirstName, UserLastName ] = args);
+      ([ userEmail, userPassword, userFirstName, userLastName ] = args);
       this.reanonymize(userPassword);
       return this;
     },
