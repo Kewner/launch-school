@@ -30,9 +30,75 @@
 //   from Object.prototype, no other method or property should exist on
 //   the object returned by the Account prototype object.
 
+// Account is an object with methods, like the init method
+// Object.create(Account) returns an empty object with Account as its prototype.
+// When calling init on this new object, it should be found on Account.init
+// We call Account.init, passing it 4 arguments.
+// init assigns the variables, local to the IIFE, to these arguments
 
+const Account = (function() {
+  let userEmail;
+  let userPassword;
+  let userFirstName;
+  let UserLastName;
 
-// Here's a sample for your reference:
+  return {
+    init(...args) {
+      ([ userEmail, userPassword, userFirstName, UserLastName ] = args);
+      this.reanonymize(userPassword);
+      return this;
+    },
+
+    reanonymize(pass) {
+      if (pass !== userPassword) return 'Invalid Password';
+      const chars = this.characters();
+      this.displayName = '';
+
+      for (let idx = 0; idx < 16; idx += 1) {
+        const idx = Math.floor((Math.random() * chars.length));
+        this.displayName += chars[idx];
+      }
+
+      return true;
+    },
+
+    characters() {
+      let chars = [];
+      let idx = 48;
+
+      while (idx <= 122) {
+        chars.push(String.fromCharCode(idx));
+        idx += 1;
+        if (idx === 58) idx = 65;
+        if (idx === 91) idx = 97;
+      }
+
+      return chars;
+    },
+
+    resetPassword(pass, newPass) {
+      if (pass !== userPassword) return 'Invalid Password';
+      userPassword = newPass;
+      return true;
+    },
+
+    firstName(pass) {
+      if (pass !== userPassword) return 'Invalid Password';
+      return userFirstName;
+    },
+
+    lastName(pass) {
+      if (pass !== userPassword) return 'Invalid Password';
+      return UserLastName;
+    },
+
+    email(pass) {
+      if (pass !== userPassword) return 'Invalid Password';
+      return userEmail;
+    },
+  };
+})();
+
 let fooBar = Object.create(Account).init('foo@bar.com', '123456', 'foo', 'bar');
 console.log(fooBar.firstName);                     // returns the firstName function
 console.log(fooBar.email);                         // returns the email function
