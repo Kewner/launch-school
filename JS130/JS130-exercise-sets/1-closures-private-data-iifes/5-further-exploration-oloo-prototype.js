@@ -10,10 +10,7 @@
 // a new user object.
 
 const Account = (function() {
-  let userEmail;
-  let userPassword;
-  let userFirstName;
-  let userLastName;
+  const users = [];
 
   function characters() {
     let chars = [];
@@ -29,10 +26,23 @@ const Account = (function() {
     return chars;
   }
 
+  function anonymize() {
+    // extract logic from reanonymize to this function!
+    // this function should return a new displayName, while reanonymize
+    // should validate the password and, if correct, call this function
+  }
+
   return {
-    init(...args) {
-      // call function in outer scope that declares variables?
-      ([ userEmail, userPassword, userFirstName, userLastName ] = args);
+    init(email, password, firstName, lastName) {
+      const userProperties = {
+        email,
+        password,
+        firstName,
+        lastName,
+        displayName: anonymize(),
+      };
+
+      this.users.push(userProperties);
       this.reanonymize(userPassword);
       return this;
     },
