@@ -1,12 +1,18 @@
 // Assignment: 6-mini-inventory-management-system-assignment.md
 
-/* Objects and their - properties and * methods
+/* Objects and their - properties and * methods:
 
 item:
 - skuCode
 - name
 - category
 - quantity
+
+ItemCreator:
+* createItem
+* validateName
+* validateCategory
+* createSkuCode
 
 ItemManager:
 - items
@@ -22,33 +28,14 @@ ReportManager:
 * reportInStock
 */
 
-const ItemManager = {
-  items: [],
-
-  create(name, category, quantity) {
-    if (!this.validateName(name) ||
-        !this.validateCategory(category) ||
-        quantity === undefined ) {
+const ItemCreator = {
+  createItem(name, category, quantity) {
+    if (!this.validateName(name) || !this.validateCategory(category) || quantity === undefined ) {
       return { notValid: true };
     }
 
-    const skuCode = this.getSkuCode(name, category);
-    this.items.push({ skuCode, name, category, quantity });
-  },
-
-  getSkuCode(name, category) {
-    const partOne = name.split(' ').join('').slice(0, 3);
-    const partTwo = category.slice(0, 2);
-    return `${partOne}${partTwo}`.toUpperCase();
-  },
-
-  findBySkuCode(code) {
-    return this.items.find(item => item.skuCode === code);
-  },
-
-  update(code, obj) {
-    const target = this.findBySkuCode(code);
-    Object.assign(target, obj);
+    const skuCode = this.createSkuCode(name, category);
+    return { skuCode, name, category, quantity };
   },
 
   validateName(name) {
@@ -58,6 +45,31 @@ const ItemManager = {
   validateCategory(category) {
     if (category.split(' ').length > 1) return false;
     return category.split(' ').join('').length >= 5;
+  },
+
+  createSkuCode(name, category) {
+    const partOne = name.split(' ').join('').slice(0, 3);
+    const partTwo = category.slice(0, 2);
+    return `${partOne}${partTwo}`.toUpperCase();
+  },
+};
+
+const ItemManager = {
+  items: [],
+
+  create(name, category, quantity) {
+    const item = ItemCreator.createItem(name, category, quantity);
+    if (item.notValid) return false;
+    this.items.push(item);
+  },
+
+  findBySkuCode(code) {
+    return this.items.find(item => item.skuCode === code);
+  },
+
+  update(code, obj) {
+    const target = this.findBySkuCode(code);
+    Object.assign(target, obj);
   },
 
   delete(code) {
@@ -80,7 +92,7 @@ const ReportManager = {
   },
 
   createReporter(code) {
-    let item = this.items.findBySkuCode(code);
+    const item = this.items.findBySkuCode(code);
 
     return {
       itemInfo() {
@@ -98,7 +110,7 @@ const ReportManager = {
 
 // Here is a sample run that you can use as a reference:
 ItemManager.create('basket ball', 'sports', 0);           // valid item
-console.log(ItemManager.create('asd', 'sports', 0));
+ItemManager.create('asd', 'sports', 0);
 ItemManager.create('soccer ball', 'sports', 5);           // valid item
 ItemManager.create('football', 'sports');
 ItemManager.create('football', 'sports', 3);              // valid item
