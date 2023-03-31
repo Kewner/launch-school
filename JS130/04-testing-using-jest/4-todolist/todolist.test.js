@@ -17,4 +17,29 @@ describe('TodoList', () => {
     list.add(todo2);
     list.add(todo3);
   });
+
+  test('todolist has a size of 3', () => {
+    expect(list.size()).toBe(3);
+  });
+
+  test('toArray() returns the list as an array', () => {
+    expect(list.toArray()).toEqual([todo1, todo2, todo3]);
+  });
+
+  test('first() returns the first todo item', () => {
+    expect(list.first()).toEqual(todo1);
+  });
+
+  test('last() returns the last todo item', () => {
+    expect(list.last()).toEqual(todo3);
+  });
+
+  test('shift() removes and returns the first todo item', () => {
+    let todo = list.shift();
+    expect(todo).toEqual(todo1);
+    expect(list.toArray()).toEqual([todo2, todo3]);
+
+    // expect(list.shift()).toEqual(todo1);
+    // expect(list.size()).toBe(2);
+  });
 });
