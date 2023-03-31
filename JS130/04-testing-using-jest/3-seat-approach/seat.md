@@ -5,7 +5,7 @@ In larger projects, we use the SEAT approach:
 3. **A**ssert the results of execution.
 4. **T**ear down and clean up any lingering artifacts.
 
-In the previous `car.test.js` file, we've only used steps 2 and 3. We created a car object in each test to perform some assertion on it. This causes redundant code which, with many tests, can add up.
+In the previous `car.test.js` file, we've only used steps 2 (like `car.wheels`) and 3 (like the `expect().toBe` call). We created a car object in each test to perform some assertion on it. This causes redundant code which, with many tests, can add up.
 
 ## Set up the necessary objects
 We should extract it to a setup step that runs before each test. In Jest, we can use the `beforeEach` function to do that. The callback we pass to `beforeEach` is called before running each test.
