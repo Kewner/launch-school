@@ -18,7 +18,7 @@ describe('TodoList', () => {
     list.add(todo3);
   });
 
-  test('todolist has a size of 3', () => {
+  test('size() returns 3, the length of the todolist', () => {
     expect(list.size()).toBe(3);
   });
 
@@ -41,5 +41,17 @@ describe('TodoList', () => {
 
     // expect(list.shift()).toEqual(todo1);
     // expect(list.size()).toBe(2);
+  });
+
+  test('pop() removes and returns the last todo item', () => {
+    const todo = list.pop();
+    expect(todo).toEqual(todo3);
+    expect(list.toArray()).toEqual([todo1, todo2]);
+  });
+
+  test('isDone() checks if all todos are done, returns true or false', () => {
+    expect(list.isDone()).toBe(false);
+    // list.markAllDone();
+    // expect(list.isDone()).toBe(true);
   });
 });
