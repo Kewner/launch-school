@@ -54,4 +54,29 @@ describe('TodoList', () => {
     // list.markAllDone();
     // expect(list.isDone()).toBe(true);
   });
+
+  test('add() throws error when non todo item is added', () => {
+    expect(() => list.add({})).toThrow(TypeError);
+    expect(() => list.add(5)).toThrow(TypeError);
+    expect(() => list.add('hello')).toThrow(TypeError);
+    expect(() => list.add(new TodoList(''))).toThrow(TypeError);
+  });
+
+  test('itemAt() returns item at given index', () => {
+    expect(list.itemAt(0)).toEqual(todo1);
+    expect(list.itemAt(1)).toEqual(todo2);
+    expect(() => list.itemAt(3)).toThrow(ReferenceError);
+  });
+
+  test('markDoneAt() marks item at given index as done', () => {
+    list.markDoneAt(0);
+    expect(todo1.isDone()).toBe(true);
+    expect(todo2.isDone()).toBe(false);
+    expect(todo3.isDone()).toBe(false);
+    expect(() => list.markDoneAt(3)).toThrow(ReferenceError);
+
+    // list.markDoneAt(0);
+    // expect(list.allDone().todos).toContain(todo1);
+    // expect(() => list.markDoneAt(3)).toThrow(ReferenceError);
+  });
 });
