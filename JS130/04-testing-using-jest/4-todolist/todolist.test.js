@@ -1,3 +1,5 @@
+// commented solutions are LS solutions
+
 const Todo = require('./todo');
 const TodoList = require('./todolist');
 
@@ -35,12 +37,12 @@ describe('TodoList', () => {
   });
 
   test('shift() removes and returns the first todo item', () => {
-    let todo = list.shift();
-    expect(todo).toEqual(todo1);
-    expect(list.toArray()).toEqual([todo2, todo3]);
+    expect(list.shift()).toEqual(todo1);
+    expect(list.size()).toBe(2);
 
-    // expect(list.shift()).toEqual(todo1);
-    // expect(list.size()).toBe(2);
+    // let todo = list.shift();
+    // expect(todo).toEqual(todo1);
+    // expect(list.toArray()).toEqual([todo2, todo3]);
   });
 
   test('pop() removes and returns the last todo item', () => {
@@ -70,13 +72,96 @@ describe('TodoList', () => {
 
   test('markDoneAt() marks item at given index as done', () => {
     list.markDoneAt(0);
-    expect(todo1.isDone()).toBe(true);
-    expect(todo2.isDone()).toBe(false);
-    expect(todo3.isDone()).toBe(false);
+    expect(list.allDone().todos).toContain(todo1);
     expect(() => list.markDoneAt(3)).toThrow(ReferenceError);
 
     // list.markDoneAt(0);
-    // expect(list.allDone().todos).toContain(todo1);
+    // expect(todo1.isDone()).toBe(true);
+    // expect(todo2.isDone()).toBe(false);
+    // expect(todo3.isDone()).toBe(false);
     // expect(() => list.markDoneAt(3)).toThrow(ReferenceError);
+  });
+
+  test('markAllDone() marks all todo items as done', () => {
+    expect(list.allDone().todos).toEqual([]);
+    list.markAllDone();
+    expect(list.allDone().todos).toEqual([todo1, todo2, todo3]);
+
+    // list.markAllDone();
+    // expect(todo1.isDone()).toBe(true);
+    // expect(todo2.isDone()).toBe(true);
+    // expect(todo3.isDone()).toBe(true);
+    // expect(list.isDone()).toBe(true);
+  });
+
+  test('removeAt() removes todo item at given index', () => {
+    expect(() => list.removeAt(3)).toThrow(ReferenceError);
+    expect(list.removeAt(1)).toEqual(todo2);
+    expect(list.toArray()).toEqual([todo1, todo3]);
+  });
+
+  test('toString() returns a string representation of the list', () => {
+    let str = `---- ${list.title} ----`;
+    [todo1, todo2, todo3].forEach(todo => str += '\n' + todo.toString());
+    expect(list.toString()).toBe(str);
+
+//     let string = `---- Today's Todos ----
+// [ ] Buy milk
+// [ ] Clean room
+// [ ] Go to the gym`;
+
+//     expect(list.toString()).toBe(string);
+  });
+
+  test('toString() returns different string for done todo', () => {
+    todo1.markDone();
+    let str = `---- ${list.title} ----`;
+    [todo1, todo2, todo3].forEach(todo => str += '\n' + todo.toString());
+    expect(list.toString()).toBe(str);
+
+//     let string = `---- Today's Todos ----
+// [ ] Buy milk
+// [X] Clean room
+// [ ] Go to the gym`;
+
+//     list.markDoneAt(1);
+//     expect(list.toString()).toBe(string);
+  });
+
+  test('toString() returns different string for all done todos', () => {
+    list.markAllDone();
+    let str = `---- ${list.title} ----`;
+    [todo1, todo2, todo3].forEach(todo => str += '\n' + todo.toString());
+    expect(list.toString()).toBe(str);
+
+//         let string = `---- Today's Todos ----
+// [X] Buy milk
+// [X] Clean room
+// [X] Go to the gym`;
+
+//     list.markAllDone();
+//     expect(list.toString()).toBe(string);
+  });
+
+  test('forEach() iterates over all todos', () => {
+    let todoArray = [];
+    list.forEach(todo => todoArray.push(todo));
+    expect(todoArray).toEqual([todo1, todo2, todo3]);
+  });
+
+  test('filter() returns new TodoList object with filtered todos', () => {
+    todo1.markDone();
+    const newList = list.filter(todo => todo.isDone());
+    const testList = {title: "Today's Todos", todos: [{ title: 'Buy milk', done: true }]};
+    expect(newList).toEqual(testList);
+
+    // todo1.markDone();
+    // let newList = new TodoList(list.title);
+    // newList.add(todo1);
+
+    // expect(newList.title).toBe(list.title);
+
+    // let doneItems = list.filter(todo => todo.isDone());
+    // expect(doneItems.toString()).toBe(newList.toString());
   });
 });
