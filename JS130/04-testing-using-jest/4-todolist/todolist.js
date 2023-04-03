@@ -53,7 +53,7 @@ class TodoList {
 
   removeAt(index) {
     this._validateIndex(index);
-    return this.todos.splice(index, 1);
+    return this.todos.splice(index, 1)[0];
   }
 
   toString() {
