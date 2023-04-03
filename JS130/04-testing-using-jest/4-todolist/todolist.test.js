@@ -68,6 +68,12 @@ describe('TodoList', () => {
     expect(() => list.markDoneAt(3)).toThrow(ReferenceError);
   });
 
+  test('markUndoneAt() marks item at given index as undone', () => {
+    list.markUndoneAt(1);
+    expect(todo2.isDone()).toBe(false);
+    expect(() => list.markUndoneAt(3)).toThrow(ReferenceError);
+  });
+
   test('markAllDone() marks all todo items as done', () => {
     expect(list.allDone().todos).toEqual([]);
     list.markAllDone();
@@ -111,5 +117,28 @@ describe('TodoList', () => {
     const newList = list.filter(todo => todo.isDone());
     const testList = {title: "Today's Todos", todos: [{ title: 'Buy milk', done: true }]};
     expect(newList).toEqual(testList);
+  });
+
+  test('findByTitle() returns todo item with given title', () => {
+    expect(list.findByTitle('Buy milk')).toEqual(todo1);
+    expect(list.findByTitle('Do laundry')).toBeUndefined();
+  });
+
+  test('allNotDone() returns array with all not done todos', () => {
+    expect(list.allNotDone().todos).toEqual([todo1, todo2, todo3]);
+    todo1.markDone();
+    expect(list.allNotDone().todos).toEqual([todo2, todo3]);
+  });
+
+  test('markDone() marks todo with given title as done', () => {
+    list.markDone('Clean room');
+    expect(list.allNotDone().todos).toEqual([todo1, todo3]);
+  });
+
+  test('markAllUndone() marks all todos undone', () => {
+    list.markAllDone();
+    expect(list.allDone().todos).toEqual([todo1, todo2, todo3]);
+    list.markAllUndone();
+    expect(list.allDone().todos).toEqual([]);
   });
 });
