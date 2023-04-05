@@ -57,26 +57,35 @@ class Triangle {
     this._validateTriangle();
   }
 
+  kind() {
+    const numberOfUniques = this._numberOfUniques();
+
+    switch (numberOfUniques) {
+      case 1: return 'equilateral';
+      case 2: return 'isosceles';
+      default: return 'scalene';
+    }
+  }
+
   _validateSides() {
     if (this.sides.filter(length => length <= 0).length > 0) {
-      throw new Error('All side lengths must be greater than 0.');
+      throw new Error('All side lengths must be greater than 0');
     }
   }
 
   _validateTriangle() {
-    const invalidTriangle = new Error('Sum of lengths of any two sides must be greater than length of remaining side.');
-    const [ one, two, three ] = this.sides;
+    const invalidTriangle = new Error('Sum of lengths of any two sides must be greater than length of remaining side');
+    const [ side1, side2, side3 ] = this.sides;
 
-    if (one + two <= three || two + three <= one || one + three <= two) {
+    if (side1 + side2 <= side3 || side2 + side3 <= side1 || side1 + side3 <= side2) {
       throw invalidTriangle;
     }
   }
 
-  kind() {
-    // - if two exactly two side lengths are equal, return 'isosceles'
-    // - if all side lengths are different, return 'scalene'
-    const sides = this.sides;
-    if (sides.every(side => side === sides[0])) return 'equilateral';
+  _numberOfUniques() {
+    return this.sides.filter((side, idx, arr) => {
+      return arr.indexOf(side) === idx;
+    }).length;
   }
 }
 
