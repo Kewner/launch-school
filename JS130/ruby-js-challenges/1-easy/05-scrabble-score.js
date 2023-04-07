@@ -23,6 +23,7 @@ The examples show us that:
     returns the score of that word
 - scores are case-insensitive
 - an empty string or whitespace scores 0
+- invalid inputs score 0
 
 Data structures
 ===============
@@ -35,23 +36,56 @@ Algorithm for constructor
 =========================
 - define property this.word on the new instance object
 
-Algorithm for static letterScores
+Algorithm for static letterValues
 =================================
-- define static property letterScores, with an object with all letters
-  as keys, and their corresponding scores as values
+- define static property letterValues, with an object with all letters
+  as keys, and their corresponding values as values
 
 Algorithm for instance score
 ============================
-- check if the input is a string; if not, throw error
-- use trim to remove whitespace from both sides of the string
 - initialize variable result with value of 0
-- if string length is 0, return result
+- check if the input is a string; if not, return result (0)
+- use trim to remove whitespace from both sides of the string
+- make sure the word is all lowercase
 - iterate through all letters of the input string:
-  - for each letter, look up its worth and add that to result
+  - for each letter, look up its worth and, if not undefined, increment
+    result by this number
 - return result
 
 Algorithm for static score
 ==========================
-- call instance score, passing it the given word
+- call Scrabble to create a new instance object, passing it the given word
+- call instance score method on this new instance object
 - return the return value
 */
+
+class Scrabble {
+  constructor(word) {
+    this.word = word;
+  }
+
+  static VALUES = {
+    a: 1, e: 1, i: 1, o: 1, u: 1, l: 1, n: 1, r: 1, s: 1, t: 1, d: 2,
+    g: 2, b: 3, c: 3, m: 3, p: 3, f: 4, h: 4, v: 4, w: 4, y: 4, k: 5,
+    j: 8, x: 8, q: 10, z: 10,
+  }
+
+  static score(word) {
+    return new Scrabble(word).score();
+  }
+
+  score() {
+    if (typeof this.word !== 'string') return 0;
+    let total = 0;
+    let word = this.word.trim().toLowerCase();
+
+    word.split('').forEach(letter => {
+      const value = Scrabble.VALUES[letter];
+      if (value) total += value;
+    });
+
+    return total;
+  }
+}
+
+module.exports = Scrabble;
