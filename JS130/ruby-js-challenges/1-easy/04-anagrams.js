@@ -26,48 +26,38 @@ Data structures
 - arrays
 - strings
 
-Algorithm of constructor
-========================
-- define this.word with value of input string
+Algorithm of constructor (word)
+===============================
+- define this.matchWord with value of input string in lower case
 
-Algorithm of match
-==================
-- initialize variable anagrams with empty array
-- initialize variable sortedWord with this.word's word as its value, but
-  with its characters sorted and in lower case
-- iterate through wordList:
-  - make the word from the list lower case
-  - if the word length equals this.word's length, and it's not the same
-    word as this.word:
-    - sort the characters of the word
-    - if the sorted word equals sortedWord, push it to anagrams
-- return anagrams
+Algorithm of match(wordList)
+============================
+- use filter to iterate through the words in wordList:
+  - if the current word is an isAnagram of this.matchWord, include it
+- return the array created by filter
+
+Algorithm of isAnagram(word)
+============================
+- initialize word1 variable with value of this.matchWord, but sorted
+- initialize word2 variable with value of word, but in lower case and sorted
+- if word in lower case does not equal this.matchWord, AND
+  word1 equals word2, return true; otherwise return false
 */
 
 class Anagrams {
   constructor(word) {
-    this.word = word;
+    this.matchWord = word.toLowerCase();
   }
 
   match(wordList) {
-    const anagrams = [];
-    const sortedWord = this.word.split('').sort().join('').toLowerCase();
+    return wordList.filter(word => this.isAnagram(word));
+  }
 
-    wordList.forEach(word => {
-      word = word.toLowerCase();
-      console.log(word, sortedWord);
-
-      if (word.length === sortedWord.length && word !== this.word.toLowerCase()) {
-        const compareWord = word.split('').sort().join('');
-        if (compareWord === sortedWord) anagrams.push(word);
-      }
-    });
-
-    return anagrams;
+  isAnagram(word) {
+    const word1 = this.matchWord.split('').sort().join('');
+    const word2 = word.toLowerCase().split('').sort().join('');
+    return (word.toLowerCase() !== this.matchWord) && (word1 === word2);
   }
 }
-
-// let testest = new Anagrams('hellothere');
-// testest.match();
 
 module.exports = Anagrams;
