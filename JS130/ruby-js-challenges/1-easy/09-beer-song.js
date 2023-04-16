@@ -12,7 +12,7 @@ Understanding the problem
 Examples/test cases
 ===================
 from the tests we can derive that:
-- we need a Beersong class with these methods:
+- we need a BeerSong class with these methods:
   - static `verse`: accepts a number as its argument and returns the
     99 Bottles of Beer verse with that number of beer bottles
   - static `verses`: accepts two numbers, the first one being the starting
@@ -62,3 +62,41 @@ Algorithm for `lyrics`
 - call verses, passing it 99 and 0
 - return the return value
 */
+
+class BeerSong {
+  static verse(num) {
+    switch(num) {
+      case 0:
+        return "No more bottles of beer on the wall, no more " +
+               "bottles of beer.\nGo to the store and buy some " +
+               "more, 99 bottles of beer on the wall.\n"
+      case 1:
+        return "1 bottle of beer on the wall, 1 bottle of beer.\n" +
+               "Take it down and pass it around, no more bottles " +
+               "of beer on the wall.\n";
+      default:
+        return `${num} bottles of beer on the wall, ${num} bottles of beer.\n` +
+               `Take one down and pass it around, ` +
+               `${(num - 1 === 1) ? '1 bottle' : `${num - 1} bottles`} of` +
+               ` beer on the wall.\n`
+    }
+  }
+
+  static verses(num1, num2) {
+    let selectedVerses = '';
+
+    for (let num = num1; num >= num2; num -= 1) {
+      selectedVerses += ('\n' + this.verse(num));
+    }
+
+    return selectedVerses.trimStart();
+  }
+
+  static lyrics() {
+    let allVerses = '';
+    allVerses += this.verses(99, 0);
+    return allVerses;
+  }
+}
+
+module.exports = BeerSong;
