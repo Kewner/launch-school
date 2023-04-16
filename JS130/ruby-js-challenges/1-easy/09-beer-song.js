@@ -22,7 +22,7 @@ from the tests we can derive that:
   - possibly some helper methods
 
 also:
-- each verse line is separated by a newline
+- verse lines are separated by a newline
 - verses are separated by a blank line (two newlines)
 - be mindful of grammatical changes:
   - 'bottles' vs 'bottle'
@@ -33,15 +33,32 @@ Data structures
 - numbers
 - strings
 
-Algorithm for `verse`
-=====================
+Algorithm for verse(num)
+========================
+- if `num` is 0, return:
+  "No more bottles of beer on the wall, no more " +
+  "bottles of beer.\nGo to the store and buy some " +
+  "more, 99 bottles of beer on the wall.\n"
+- if `num` is 1, return:
+  "1 bottle of beer on the wall, 1 bottle of beer.\n" +
+  "Take it down and pass it around, no more bottles " +
+  "of beer on the wall.\n";
+- else, return:
+  "{num} bottles of beer on the wall, {num} bottles of beer.\n" +
+  "Take one down and pass it around, {num -1} bottles of beer " +
+  "on the wall.\n"
 
-
-Algorithm for `verses`
-======================
-
+Algorithm for verses(num1, num2)
+================================
+- initialize `selectedVerses` to empty string
+- iterate starting at num1, decreasing to num2 (inclusive):
+  - call verse, passing it the current number
+  - add the return value + /n to `selectedVerses`
+- return `selectedVerses`
 
 Algorithm for `lyrics`
 ======================
-
+- initialize `allVerses` to empty string
+- call verses, passing it 99 and 0
+- return the return value
 */
