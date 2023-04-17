@@ -54,31 +54,27 @@ Algorithm for verses(num1, num2)
 - iterate starting at num1, decreasing to num2 (inclusive):
   - call verse, passing it the current number
   - add the return value + /n to `selectedVerses`
-- return `selectedVerses`
+- return `selectedVerses` (but without the leading \n)
 
 Algorithm for `lyrics`
 ======================
-- initialize `allVerses` to empty string
-- call verses, passing it 99 and 0
-- return the return value
+- return the return value of calling verses, passing it 99 and 0
 */
 
 class BeerSong {
   static verse(num) {
+    const bottles = (num - 1 === 1) ? '1 bottle' : `${num - 1} bottles`;
+
     switch(num) {
       case 0:
-        return "No more bottles of beer on the wall, no more " +
-               "bottles of beer.\nGo to the store and buy some " +
-               "more, 99 bottles of beer on the wall.\n"
+        return "No more bottles of beer on the wall, no more bottles of beer." +
+        "\nGo to the store and buy some more, 99 bottles of beer on the wall.\n"
       case 1:
-        return "1 bottle of beer on the wall, 1 bottle of beer.\n" +
-               "Take it down and pass it around, no more bottles " +
-               "of beer on the wall.\n";
+        return "1 bottle of beer on the wall, 1 bottle of beer.\nTake it down" +
+        " and pass it around, no more bottles of beer on the wall.\n";
       default:
-        return `${num} bottles of beer on the wall, ${num} bottles of beer.\n` +
-               `Take one down and pass it around, ` +
-               `${(num - 1 === 1) ? '1 bottle' : `${num - 1} bottles`} of` +
-               ` beer on the wall.\n`
+        return `${num} bottles of beer on the wall, ${num} bottles of beer.` +
+        `\nTake one down and pass it around, ${bottles} of beer on the wall.\n`
     }
   }
 
@@ -89,13 +85,11 @@ class BeerSong {
       selectedVerses += ('\n' + this.verse(num));
     }
 
-    return selectedVerses.trimStart();
+    return selectedVerses.trimStart(); // remove leading newline
   }
 
   static lyrics() {
-    let allVerses = '';
-    allVerses += this.verses(99, 0);
-    return allVerses;
+    return this.verses(99, 0);
   }
 }
 
