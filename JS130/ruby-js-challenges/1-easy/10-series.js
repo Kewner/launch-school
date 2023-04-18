@@ -4,8 +4,8 @@ Understanding the problem
 - input: a string of digits and a number specifying a length
 - output: all the possible consecutive number series of the 
   specified length in the given string, contained in an array
-- for example, given a string '01234' and a length 3, an array
-  [[0, 1, 2], [1, 2, 3], [2, 3, 4]] should be returned
+- for example, given a string '54932' and a length 3, an array
+  [[5, 4, 9], [4, 9, 3], [9, 3, 2]] should be returned
 
 Examples/test cases
 ===================
@@ -21,19 +21,33 @@ Data structures
 - strings
 - arrays
 
-Algorithm constructor(digits)
-=============================
-- initialize this.digits to digits
+Algorithm constructor(nums)
+===========================
+- initialize this.nums to nums
 
-Algorithm slices(length)
-========================
-- if length exceeds length of this.digits, throw error
-- initialize series with empty array
-- iterate through digits of this.digits:
-  - initialize currentSeries with array containing current digit
-  - iterate from current digit to end of array:
-    - if currentSeries.length equals length, push it to series and
-      break from current iteration
-    - if next digit equals current digit + 1, push it to currentSeries
-- return series
+Algorithm slices(size)
+======================
+- if size exceeds length of this.nums, throw error
+- iterate through nums of this.nums using map:
+  - return a sub-array starting at current num, with length of size
+- return the result after filtering out the sub-array(s)
+  that contain less than the required number of digits.
 */
+
+class Series {
+  constructor(nums) {
+    this.nums = nums;
+  }
+
+  slices(size) {
+    if (size > this.nums.length) throw new Error(`Max size: ${this.nums.length}`);
+
+    const series = this.nums.split('').map((num, idx, arr) => {
+      return arr.map(num => Number(num)).slice(idx, idx + size);
+    });
+
+    return series.filter(series => series.length === size);
+  }
+}
+
+module.exports = Series;
