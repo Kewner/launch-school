@@ -51,6 +51,7 @@ reset()
 class Robot {
   constructor() {
     this.robotName = this.generateName();
+    Robot.allRobotNames.push(this.robotName);
   }
 
   static allRobotNames = [];
@@ -62,10 +63,10 @@ class Robot {
       name = this.randomLetters() + this.randomNumbers();
     }
 
-    Robot.allRobotNames.push(name);
     return name;
   }
 
+  // generate 2 random uppercase letters and return as string
   randomLetters() {
     return [0, 0].map(_ => {
       const charCode = Math.floor(Math.random() * 26) + 65;
@@ -73,6 +74,7 @@ class Robot {
     }).join('');
   }
 
+  // generate 3 random numbers and return as string
   randomNumbers() {
     return [0, 0, 0].map(_ => {
       return Math.floor(Math.random() * 10);
