@@ -1,8 +1,8 @@
 /* PEDAC
 Understanding the problem
 =========================
-- input:
-- output:
+- input: -
+- output: -
 
 Examples/test cases
 ===================
@@ -25,12 +25,16 @@ Data structures
 
 Algorithm
 =========
-generateName()
-- intialize variable `name` with return value of randomLetters()
+constructor()
+- define property robotName and assign to return value of this.name()
+- add `this.robotName` to Robot.allRobotNames collection
+
+name()
+- if the robot already has a name, return it
+- else, intialize variable `name` with return value of randomLetters()
   concatenated with the return value of randomNumbers()
 - while Robot.allRobotNames includes `name`, generate a new name and
   assign `name` to it
-- add `name` to Robot.allRobotNames
 - return `name`
 
 randomLetters()
@@ -45,18 +49,20 @@ randomNumbers()
 
 reset()
 - find robot.robotName in Robot.allRobotNames and remove it from array
-- replace robot.robotName with a new robotName by calling generateName()
+- reassign robot.robotName to undefined
+- reassign robot.robotName to new name by calling this.name()
 */
 
 class Robot {
   constructor() {
-    this.robotName = this.generateName();
+    this.robotName = this.name();
     Robot.allRobotNames.push(this.robotName);
   }
 
   static allRobotNames = [];
 
-  generateName() {
+  name() {
+    if (this.robotName) return this.robotName;
     let name = this.randomLetters() + this.randomNumbers();
 
     while (Robot.allRobotNames.includes(name)) {
@@ -82,13 +88,18 @@ class Robot {
   }
 
   reset() {
-    let nameIdx = Robot.allRobotNames.indexOf(this.name());
-    Robot.allRobotNames.splice(nameIdx, 1);
-    this.robotName = this.generateName();
+    this.removeFromCollection();
+    this.resetName();
   }
 
-  name() {
-    return this.robotName;
+  removeFromCollection() {
+    let nameIdx = Robot.allRobotNames.indexOf(this.name());
+    Robot.allRobotNames.splice(nameIdx, 1);
+  }
+
+  resetName() {
+    this.robotName = undefined;
+    this.robotName = this.name();
   }
 }
 
