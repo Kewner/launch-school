@@ -49,8 +49,7 @@ randomNumbers()
 
 reset()
 - find robot.robotName in Robot.allRobotNames and remove it from array
-- reassign robot.robotName to undefined
-- reassign robot.robotName to new name by calling this.name()
+- reassign robot.robotName to null
 */
 
 class Robot {
@@ -88,18 +87,9 @@ class Robot {
   }
 
   reset() {
-    this.removeFromCollection();
-    this.resetName();
-  }
-
-  removeFromCollection() {
-    let nameIdx = Robot.allRobotNames.indexOf(this.name());
+    let nameIdx = Robot.allRobotNames.indexOf(this.robotName);
     Robot.allRobotNames.splice(nameIdx, 1);
-  }
-
-  resetName() {
-    this.robotName = undefined;
-    this.robotName = this.name();
+    this.robotName = null;
   }
 }
 
