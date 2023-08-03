@@ -57,7 +57,7 @@ describe("Clock", () => {
     expect(clock.toString()).toBe('08:30');
   });
 
-  xtest("equivalent clocks", () => {
+  test("equivalent clocks", () => {
     let clock1 = Clock.at(15, 37);
     let clock2 = Clock.at(15, 37);
 
@@ -74,7 +74,7 @@ describe("Clock", () => {
     expect(clock.toString()).toBe('06:59');
   });
 
-  xtest("inequivalent clocks", () => {
+  test("inequivalent clocks", () => {
     let clock1 = Clock.at(15, 37);
     let clock2 = Clock.at(15, 36);
     let clock3 = Clock.at(14, 37);
