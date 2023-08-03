@@ -129,13 +129,4 @@ class Clock {
   }
 }
 
-let clock0 = Clock.at(23, 30).add(60);
-console.log(clock0.toString());
-
-let clock1 = Clock.at(10).subtract(3061); // subtract 3 hours and 1 minute
-console.log(clock1.toString());
-
-let clock2 = Clock.at(0).subtract(50);
-console.log(clock2.toString());
-
 module.exports = Clock;
