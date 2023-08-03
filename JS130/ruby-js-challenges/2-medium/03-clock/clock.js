@@ -23,7 +23,7 @@ we need a Clock class with:
 - an instance method subtract()
 - an instance method toString() that returns a the time of the clock
   object as a string in hh:mm format
-- an instance method isEqual() that tests is 2 Clock objects
+- an instance method isEqual() that tests if 2 Clock objects
   represent the same time and returns a boolean
 
 Data structures
@@ -49,7 +49,7 @@ add (instance):
 - reassign `minutes` to `minutes % 60`
 - initialize variable `newClock` with return value of calling Clock.at,
   passing it the hours and minutes of the clock add was called on
-- increment newClock.hours by `hours` and newClock.minutes by `minutes` 
+- increment newClock.hours by `hours` and newClock.minutes by `minutes`
 - if newClock.hours exceeds 23, subtract 24 from it
 - if newClock.minutes exceeds 59, subtract 60 from it and add 1 to
   newClock.minutes
@@ -60,7 +60,7 @@ subtract (instance):
 - reassign `minutes` to `minutes % 60`
 - initialize variable `newClock` with return value of calling Clock.at,
   passing it the hours and minutes of the clock add was called on
-- decrement newClock.hours by `hours` and newClock.minutes by `minutes` 
+- decrement newClock.hours by `hours` and newClock.minutes by `minutes`
 - if newClock.minutes is less than 0, reassign it to `60 + newClock.minutes`
   newClock.minutes and subtract 1 from newClock.hours
 - if newClock.hours is less than 0, reassign it to `12 + newClock.hours`
@@ -87,9 +87,9 @@ class Clock {
   }
 
   add(minutes) {
-    minutes = minutes % 1440;
+    minutes %= 1440;
     let hours = Math.floor(minutes / 60);
-    minutes = minutes % 60;
+    minutes %= 60;
 
     const newClock = Clock.at(this.hours, this.minutes);
     newClock.hours += hours;
@@ -106,9 +106,9 @@ class Clock {
   }
 
   subtract(minutes) {
-    minutes = minutes % 1440;
+    minutes %= 1440;
     let hours = Math.floor(minutes / 60);
-    minutes = minutes % 60;
+    minutes %= 60;
 
     const newClock = Clock.at(this.hours, this.minutes);
     newClock.hours -= hours;
@@ -124,8 +124,8 @@ class Clock {
     return newClock;
   }
 
-  isEqual() {
-
+  isEqual(clock2) {
+    return this.hours === clock2.hours && this.minutes === clock2.minutes;
   }
 }
 
