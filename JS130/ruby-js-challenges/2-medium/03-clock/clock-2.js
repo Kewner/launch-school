@@ -21,11 +21,25 @@ class Clock {
     return this._computeTimeFrom(minutesSinceMidnight);
   }
 
+  subtract(minutes) {
+    let minutesSinceMidnight = this._minutesSinceMidnight(minutes) - minutes;
+
+    while (-minutesSinceMidnight >= Clock.MINUTES_IN_DAY) {
+      minutesSinceMidnight += Clock.MINUTES_IN_DAY;
+    }
+
+    return this._computeTimeFrom(minutesSinceMidnight);
+  }
+
   _minutesSinceMidnight(minutesToAdd) {
     return (this.hours * Clock.MINUTES_IN_HOUR) + this.minutes;
   }
 
   _computeTimeFrom(minutesSinceMidnight) {
+    if (minutesSinceMidnight < 0) {
+      minutesSinceMidnight += Clock.MINUTES_IN_DAY;
+    }
+
     let hours = Math.floor(minutesSinceMidnight / Clock.MINUTES_IN_HOUR);
     let minutes = minutesSinceMidnight % Clock.MINUTES_IN_HOUR;
     return Clock.at(hours, minutes);
@@ -39,8 +53,3 @@ class Clock {
 }
 
 module.exports = Clock;
-
-// let clock = Clock.at(10);
-// console.log(clock);
-// console.log(clock.add(3));
-// console.log(clock.toString());
