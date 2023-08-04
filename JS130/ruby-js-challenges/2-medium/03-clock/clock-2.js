@@ -12,8 +12,7 @@ class Clock {
   }
 
   add(minutes) {
-    let minutesSinceMidnight = this._minutesSinceMidnight(minutes);
-    // console.log(minutesSinceMidnight);
+    let minutesSinceMidnight = this._minutesSinceMidnight(minutes) + minutes;
 
     while (minutesSinceMidnight >= Clock.MINUTES_IN_DAY) {
       minutesSinceMidnight -= Clock.MINUTES_IN_DAY;
@@ -23,7 +22,7 @@ class Clock {
   }
 
   _minutesSinceMidnight(minutesToAdd) {
-    return (this.hours * Clock.MINUTES_IN_HOUR) + this.minutes + minutesToAdd;
+    return (this.hours * Clock.MINUTES_IN_HOUR) + this.minutes;
   }
 
   _computeTimeFrom(minutesSinceMidnight) {
