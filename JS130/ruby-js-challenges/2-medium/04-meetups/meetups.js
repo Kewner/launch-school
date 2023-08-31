@@ -37,11 +37,16 @@ Algorithm for day
   - if `getDay()` of `date` equals `weekday`:
     - if `schedule` equals `Meetup.scheduleNumbers[weekdayOccurence]`, return `date`
     - increment `weekdayOccurence` by 1
-*/
 
-// next:
-// - pass toBeNull tests
-// - add `last` and `teenth` features
+next:
+- pass toBeNull tests
+- add `last` and `teenth` features
+
+teenth:
+- every month has 7 days that end in 'teenth': 13, 14, 15, 16, 17, 18, 19
+- so each month as a mo, tu, we, th, fr, sa, and su ending in 'teenth'
+- with meetup.day('Tuesday', 'teenth'), we need to find the Tuesday that ends in 'teenth'
+*/
 
 'use strict';
 
