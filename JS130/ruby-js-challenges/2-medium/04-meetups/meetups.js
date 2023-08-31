@@ -30,14 +30,18 @@ Algorithm for day
 =================
 - reassign `schedule` to same value but in lowercase
 - reassign `weekday` to number corresponding to that day
+- initialize `weekdayOccurence` to 0
 - iterate through numbers 1 through 31 as `monthDay`:
-  - initialize `weekdayOccurence` to 0
   - initialize `date` to a date object of the instance's year,
     month -1, and `monthDay`
   - if `getDay()` of `date` equals `weekday`:
     - if `schedule` equals `Meetup.scheduleNumbers[weekdayOccurence]`, return `date`
     - increment `weekdayOccurence` by 1
 */
+
+// next:
+// - pass toBeNull tests
+// - add `last` and `teenth` features
 
 'use strict';
 
@@ -48,11 +52,11 @@ class Meetup {
   }
 
   day(weekday, schedule) {
-    weekday = Meetup.weekDays[weekday.toLowerCase()]; // monday > 1
-    schedule = schedule.toLowerCase(); // FIRst > first
+    weekday = Meetup.weekDays[weekday.toLowerCase()]; // monday => 1
+    schedule = schedule.toLowerCase(); // FIRst => first
+    let weekdayOccurence = 0;
 
     for (let monthDay = 1; monthDay <= 31; monthDay += 1) {
-      let weekdayOccurence = 0;
       const date = new Date(this.year, this.month - 1, monthDay);
 
       if (date.getDay() === weekday) {

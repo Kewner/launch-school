@@ -26,175 +26,175 @@ describe("meetup()", () => {
     expect(meetup.day('monday', 'FIRST').toString()).toBe(expected);
   });
 
-  xtest("test first Tuesday of may 2013", () => {
+  test("test first Tuesday of may 2013", () => {
     let meetup = new Meetup(2013, 5);
     let expected = dateAsString(2013, 5, 7);
     expect(meetup.day('Tuesday', 'first').toString()).toBe(expected);
   });
 
-  xtest("test first Wednesday of june 2013", () => {
+  test("test first Wednesday of june 2013", () => {
     let meetup = new Meetup(2013, 6);
     let expected = dateAsString(2013, 6, 5);
     expect(meetup.day('wednesday', 'first').toString()).toBe(expected);
   });
 
-  xtest("test first Thursday of july 2013", () => {
+  test("test first Thursday of july 2013", () => {
     let meetup = new Meetup(2013, 7);
     let expected = dateAsString(2013, 7, 4);
     expect(meetup.day('Thursday', 'first').toString()).toBe(expected);
   });
 
-  xtest("test first Friday of august 2013", () => {
+  test("test first Friday of august 2013", () => {
     let meetup = new Meetup(2013, 8);
     let expected = dateAsString(2013, 8, 2);
     expect(meetup.day('Friday', 'first').toString()).toBe(expected);
   });
 
-  xtest("test first Saturday of september 2013", () => {
+  test("test first Saturday of september 2013", () => {
     let meetup = new Meetup(2013, 9);
     let expected = dateAsString(2013, 9, 7);
     expect(meetup.day('Saturday', 'first').toString()).toBe(expected);
   });
 
-  xtest("test first Sunday of october 2013", () => {
+  test("test first Sunday of october 2013", () => {
     let meetup = new Meetup(2013, 10);
     let expected = dateAsString(2013, 10, 6);
     expect(meetup.day('Sunday', 'first').toString()).toBe(expected);
   });
 
-  xtest("test second Monday of november 2013", () => {
+  test("test second Monday of november 2013", () => {
     let meetup = new Meetup(2013, 11);
     let expected = dateAsString(2013, 11, 11);
     expect(meetup.day('Monday', 'second').toString()).toBe(expected);
   });
 
-  xtest("test second Tuesday of december 2013", () => {
+  test("test second Tuesday of december 2013", () => {
     let meetup = new Meetup(2013, 12);
     let expected = dateAsString(2013, 12, 10);
     expect(meetup.day('Tuesday', 'second').toString()).toBe(expected);
   });
 
-  xtest("test second Wednesday of january 2014", () => {
+  test("test second Wednesday of january 2014", () => {
     let meetup = new Meetup(2014, 1);
     let expected = dateAsString(2014, 1, 8);
     expect(meetup.day('Wednesday', 'second').toString()).toBe(expected);
   });
 
-  xtest("test second Thursday of february 2014", () => {
+  test("test second Thursday of february 2014", () => {
     let meetup = new Meetup(2014, 2);
     let expected = dateAsString(2014, 2, 13);
     expect(meetup.day('Thursday', 'second').toString()).toBe(expected);
   });
 
-  xtest("test second Friday of march 2014", () => {
+  test("test second Friday of march 2014", () => {
     let meetup = new Meetup(2014, 3);
     let expected = dateAsString(2014, 3, 14);
     expect(meetup.day('Friday', 'second').toString()).toBe(expected);
   });
 
-  xtest("test second Saturday of april 2014", () => {
+  test("test second Saturday of april 2014", () => {
     let meetup = new Meetup(2014, 4);
     let expected = dateAsString(2014, 4, 12);
     expect(meetup.day('Saturday', 'second').toString()).toBe(expected);
   });
 
-  xtest("test second Sunday of may 2014", () => {
+  test("test second Sunday of may 2014", () => {
     let meetup = new Meetup(2014, 5);
     let expected = dateAsString(2014, 5, 11);
     expect(meetup.day('Sunday', 'second').toString()).toBe(expected);
   });
 
-  xtest("test third Monday of june 2014", () => {
+  test("test third Monday of june 2014", () => {
     let meetup = new Meetup(2014, 6);
     let expected = dateAsString(2014, 6, 16);
     expect(meetup.day('Monday', 'third').toString()).toBe(expected);
   });
 
-  xtest("test third Tuesday of july 2014", () => {
+  test("test third Tuesday of july 2014", () => {
     let meetup = new Meetup(2014, 7);
     let expected = dateAsString(2014, 7, 15);
     expect(meetup.day('Tuesday', 'third').toString()).toBe(expected);
   });
 
-  xtest("test third Wednesday of august 2014", () => {
+  test("test third Wednesday of august 2014", () => {
     let meetup = new Meetup(2014, 8);
     let expected = dateAsString(2014, 8, 20);
     expect(meetup.day('Wednesday', 'third').toString()).toBe(expected);
   });
 
-  xtest("test third Thursday of september 2014", () => {
+  test("test third Thursday of september 2014", () => {
     let meetup = new Meetup(2014, 9);
     let expected = dateAsString(2014, 9, 18);
     expect(meetup.day('Thursday', 'third').toString()).toBe(expected);
   });
 
-  xtest("test third Friday of october 2014", () => {
+  test("test third Friday of october 2014", () => {
     let meetup = new Meetup(2014, 10);
     let expected = dateAsString(2014, 10, 17);
     expect(meetup.day('Friday', 'third').toString()).toBe(expected);
   });
 
-  xtest("test third Saturday of november 2014", () => {
+  test("test third Saturday of november 2014", () => {
     let meetup = new Meetup(2014, 11);
     let expected = dateAsString(2014, 11, 15);
     expect(meetup.day('Saturday', 'third').toString()).toBe(expected);
   });
 
-  xtest("test third Sunday of december 2014", () => {
+  test("test third Sunday of december 2014", () => {
     let meetup = new Meetup(2014, 12);
     let expected = dateAsString(2014, 12, 21);
     expect(meetup.day('Sunday', 'third').toString()).toBe(expected);
   });
 
-  xtest("test fourth Monday of january 2015", () => {
+  test("test fourth Monday of january 2015", () => {
     let meetup = new Meetup(2015, 1);
     let expected = dateAsString(2015, 1, 26);
     expect(meetup.day('Monday', 'fourth').toString()).toBe(expected);
   });
 
-  xtest("test fourth Tuesday of february 2015", () => {
+  test("test fourth Tuesday of february 2015", () => {
     let meetup = new Meetup(2015, 2);
     let expected = dateAsString(2015, 2, 24);
     expect(meetup.day('Tuesday', 'fourth').toString()).toBe(expected);
   });
 
-  xtest("test fourth Wednesday of march 2015", () => {
+  test("test fourth Wednesday of march 2015", () => {
     let meetup = new Meetup(2015, 3);
     let expected = dateAsString(2015, 3, 25);
     expect(meetup.day('Wednesday', 'fourth').toString()).toBe(expected);
   });
 
-  xtest("test fourth Thursday of april 2015", () => {
+  test("test fourth Thursday of april 2015", () => {
     let meetup = new Meetup(2015, 4);
     let expected = dateAsString(2015, 4, 23);
     expect(meetup.day('Thursday', 'fourth').toString()).toBe(expected);
   });
 
-  xtest("test fourth Friday of may 2015", () => {
+  test("test fourth Friday of may 2015", () => {
     let meetup = new Meetup(2015, 5);
     let expected = dateAsString(2015, 5, 22);
     expect(meetup.day('Friday', 'fourth').toString()).toBe(expected);
   });
 
-  xtest("test fourth Saturday of june 2015", () => {
+  test("test fourth Saturday of june 2015", () => {
     let meetup = new Meetup(2015, 6);
     let expected = dateAsString(2015, 6, 27);
     expect(meetup.day('Saturday', 'fourth').toString()).toBe(expected);
   });
 
-  xtest("test fourth Sunday of july 2015", () => {
+  test("test fourth Sunday of july 2015", () => {
     let meetup = new Meetup(2015, 7);
     let expected = dateAsString(2015, 7, 26);
     expect(meetup.day('Sunday', 'fourth').toString()).toBe(expected);
   });
 
-  xtest("test fifth Monday of august 2015", () => {
+  test("test fifth Monday of august 2015", () => {
     let meetup = new Meetup(2015, 8);
     let expected = dateAsString(2015, 8, 31);
     expect(meetup.day('Monday', 'fifth').toString()).toBe(expected);
   });
 
-  xtest("test fifth Tuesday of september 2015", () => {
+  test("test fifth Tuesday of september 2015", () => {
     let meetup = new Meetup(2015, 9);
     let expected = dateAsString(2015, 9, 29);
     expect(meetup.day('Tuesday', 'fifth').toString()).toBe(expected);
@@ -215,7 +215,7 @@ describe("meetup()", () => {
     expect(meetup.day('Friday', 'fifth')).toBeNull();
   });
 
-  xtest("test fifth Saturday of january 2016", () => {
+  test("test fifth Saturday of january 2016", () => {
     let meetup = new Meetup(2016, 1);
     let expected = dateAsString(2016, 1, 30);
     expect(meetup.day('Saturday', 'fifth').toString()).toBe(expected);
@@ -226,7 +226,7 @@ describe("meetup()", () => {
     expect(meetup.day('Sunday', 'fifth')).toBeNull();
   });
 
-  xtest("test fifth Monday of february 2016", () => {
+  test("test fifth Monday of february 2016", () => {
     let meetup = new Meetup(2016, 2);
     let expected = dateAsString(2016, 2, 29);
     expect(meetup.day('Monday', 'fifth').toString()).toBe(expected);
