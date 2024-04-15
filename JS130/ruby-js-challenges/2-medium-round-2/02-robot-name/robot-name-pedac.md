@@ -39,10 +39,13 @@ a static property that refers to an array containing all Robot instances
 
 ### Robot._createName()
 
-- randomly generate a name in this format: RX837 or BC811 (2 letters, 3 numbers)
-- check if the name already exists in any other robot (`Robot._robots`)
+randomly generate a name in this format: RX837 or BC811 (2 letters, 3 numbers):
+
+- use `Math.random()` to select 2 random letters and 2 random numbers
+  - use a string of the alphabet to do this
+- check if the new name already exists in any other robot (`Robot._robots`)
   - if so, generate a new name
-- return this name
+- return the generated name
 
 ### constructor()
 
@@ -57,4 +60,4 @@ a static property that refers to an array containing all Robot instances
 
 ### Robot.prototype.reset()
 
-- reassign robot's property `robotName` to null
+- reassign robot's property `robotName` to `null`
