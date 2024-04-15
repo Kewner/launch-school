@@ -1,24 +1,5 @@
 class Robot {
-  constructor() {
-    this.robotName = Robot._getName();
-  }
-
-  static _allRobotNames = [];
-
-  static _getName() {
-    let robotName = this._generateName();
-
-    while (this._allRobotNames.includes(robotName)) {
-      robotName = this._generateName();
-    }
-
-    this._addName(robotName);
-    return robotName;
-  }
-
-  static _addName(robotName) {
-    Robot._allRobotNames.push(robotName);
-  }
+  static _robotNames = [];
 
   static _generateName() {
     let robotName = '';
@@ -37,12 +18,18 @@ class Robot {
 
   name() {
     if (this.robotName) return this.robotName;
-    this.robotName = Robot._getName();
+    this.robotName = Robot._generateName();
+
+    while (Robot._robotNames.includes(this.robotName)) {
+      this.robotName = Robot._generateName();
+    }
+
+    Robot._robotNames.push(this.robotName);
     return this.robotName;
   }
 
   reset() {
-    Robot._allRobotNames.splice(Robot._allRobotNames.indexOf(this.robotName), 1);
+    Robot._robotNames.splice(Robot._robotNames.indexOf(this.robotName), 1);
     this.robotName = null;
   }
 }
