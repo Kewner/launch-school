@@ -33,19 +33,22 @@ We will use:
 
 ## Algorithm
 
-### Robot.robots
+### Robot._robots
 
 a static property that refers to an array containing all Robot instances
 
-### Robot.createName()
+### Robot._createName()
 
 - randomly generate a name in this format: RX837 or BC811 (2 letters, 3 numbers)
+- check if the name already exists in any other robot (`Robot._robots`)
+  - if so, generate a new name
 - return this name
 
 ### constructor()
 
 - call method to create new random name
-- define property `robotName` on Robot instance
+- define property `robotName` on Robot instance, assign it to returned name
+- add new robot to `Robot._robots`
 
 ### Robot.prototype.name()
 
